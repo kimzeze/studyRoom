@@ -14,9 +14,9 @@ import { persist } from "zustand/middleware";
 // );
 
 // Zustand 스토어 생성
-const useAuthStore = create((set) => ({
-  authData: null,
-  setAuthData: (data) => set({ authData: data }),
-}));
+// const useAuthStore = create((set) => ({
+//   authData: null,
+//   setAuthData: (data) => set({ authData: data }),
+// }));
 
-export default useAuthStore;
+// export default useAuthStore;

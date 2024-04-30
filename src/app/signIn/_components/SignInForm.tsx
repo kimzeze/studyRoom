@@ -1,10 +1,21 @@
 "use client";
 
+import useAuthStore from "@/app/stores/useAuthStore";
 import { supabase } from "@/supa-auth/lib/supabase";
 import { FaGithub } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 
 export default function SignInForm() {
+  const { isLoggedIn, setIsLoggedIn } = useAuthStore();
+
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === "SIGNED_IN") {
+      setIsLoggedIn(true);
+    } else if (event === "SIGNED_OUT") {
+      setIsLoggedIn(false);
+    }
+  });
+
   // 깃허브 로그인 함수
   async function signInWithGithub() {
     try {
@@ -72,38 +83,43 @@ export default function SignInForm() {
   }
 
   return (
-    <section className="h-[400px] flex flex-col justify-between items-center">
-      <h2 className="text-[30px] font-bold text-white">
-        TEST THIRD PARTY LOGIN
+    <section className="h-[500px] flex flex-col items-center border">
+      <h2 className="text-[30px] font-bold text-white pt-[50px] pb-[30px]">
+        Let&apos;s connect your GitHub account
       </h2>
-      <button
-        className="border-[2px] rounded-[10px] font-semibold w-[400px] text-[30px] flex items-center p-[5px] justify-between pr-[30px] pl-[30px] hover:text-black hover:bg-white"
-        onClick={signInWithGithub}
-      >
-        <FaGithub className="w-[40px] h-[40px]" />
-        Sign in with Github
-      </button>
-      <button
-        className="border-[2px] rounded-[10px] font-semibold w-[400px] text-[30px] flex items-center p-[5px] justify-between pr-[30px] pl-[30px] hover:text-black hover:bg-white"
-        onClick={signOut}
-      >
-        <FiLogOut className="w-[40px] h-[40px]" />
-        Logout
-      </button>
-      <button
-        className="border-[2px] rounded-[10px] font-semibold w-[400px] text-[30px] flex items-center p-[5px] justify-between pr-[30px] pl-[30px] hover:text-black hover:bg-white"
-        onClick={checkLoginStatus}
-      >
-        <FiLogOut className="w-[40px] h-[40px]" />
-        Check User Data
-      </button>
-      <button
-        className="border-[2px] rounded-[10px] font-semibold w-[400px] text-[30px] flex items-center p-[5px] justify-between pr-[30px] pl-[30px] hover:text-black hover:bg-white"
-        onClick={checkSession}
-      >
-        <FiLogOut className="w-[40px] h-[40px]" />
-        Check Session
-      </button>
+      {isLoggedIn ? (
+        <>
+          <button
+            className="border-[2px] rounded-[10px] font-semibold w-[400px] text-[30px] flex items-center p-[5px] justify-between pr-[30px] pl-[30px] hover:text-black hover:bg-white"
+            onClick={signOut}
+          >
+            <FiLogOut className="w-[40px] h-[40px]" />
+            Logout
+          </button>
+          <button
+            className="border-[2px] rounded-[10px] font-semibold w-[400px] text-[30px] flex items-center p-[5px] justify-between pr-[30px] pl-[30px] hover:text-black hover:bg-white"
+            onClick={checkLoginStatus}
+          >
+            <FiLogOut className="w-[40px] h-[40px]" />
+            Check User Data
+          </button>
+          <button
+            className="border-[2px] rounded-[10px] font-semibold w-[400px] text-[30px] flex items-center p-[5px] justify-between pr-[30px] pl-[30px] hover:text-black hover:bg-white"
+            onClick={checkSession}
+          >
+            <FiLogOut className="w-[40px] h-[40px]" />
+            Check Session
+          </button>
+        </>
+      ) : (
+        <button
+          className="border-[2px] rounded-[10px] font-semibold w-[400px] text-[30px] flex items-center p-[5px] justify-between pr-[30px] pl-[30px] hover:text-black hover:bg-white"
+          onClick={signInWithGithub}
+        >
+          <FaGithub className="w-[40px] h-[40px]" />
+          Sign in with Github
+        </button>
+      )}
     </section>
   );
 }

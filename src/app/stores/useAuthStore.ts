@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+// import { persist } from "zustand/middleware";
 
 // const useUserStore = create(
 //   persist<userState>(
@@ -13,10 +13,14 @@ import { persist } from "zustand/middleware";
 //   ),
 // );
 
-// Zustand 스토어 생성
-// const useAuthStore = create((set) => ({
-//   authData: null,
-//   setAuthData: (data) => set({ authData: data }),
-// }));
+interface AuthState {
+  isLoggedIn: boolean;
+  setIsLoggedIn: (isLoggedIn: boolean) => void;
+}
 
-// export default useAuthStore;
+const useAuthStore = create<AuthState>((set) => ({
+  isLoggedIn: false,
+  setIsLoggedIn: (isLoggedIn) => set({ isLoggedIn }),
+}));
+
+export default useAuthStore;

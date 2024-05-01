@@ -10,7 +10,7 @@
 <img width="1508" alt="스크린샷 2024-05-02 00 33 44" src="https://github.com/kimzeze/studyRoom/assets/96248861/a9c89d85-f5b7-4d7e-a391-1841ed644673">
 <img width="1552" alt="스크린샷 2024-05-02 02 04 29" src="https://github.com/kimzeze/studyRoom/assets/96248861/c808986e-20e9-4fae-9490-a4cf85ed471f">
 
-### Vercel - [Ready to dive into DevCave](https://ourstudyroom.vercel.app/)
+### Vercel - [Ready to dive into DevCave](https://devCave.vercel.app/)
 
 ---
 

@@ -1,9 +1,8 @@
-import Link from "next/link";
 import SignInForm from "./_components/SignInForm";
 
 export default function SignIn() {
   return (
-    <main className="flex items-center h-screen justify-center pt-[50px]">
+    <main className="flex items-center h-screen justify-center pt-[50px] bg-[#f1f1f1]">
       <section className="flex flex-col items-center">
         <h2 className="text-[100px] w-screen h-[140px] border-t-[1px] border-[#222] font-normal content-center pl-[50px] pr-[50px]">
           Welcome,

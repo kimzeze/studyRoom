@@ -2,8 +2,9 @@
 
 import useAuthStore from "@/app/stores/useAuthStore";
 import { supabase } from "@/supa-auth/lib/supabase";
-import { FaGithub } from "react-icons/fa";
-import { FiLogOut } from "react-icons/fi";
+import Link from "next/link";
+// import { FaGithub } from "react-icons/fa";
+// import { FiLogOut } from "react-icons/fi";
 
 export default function SignInForm() {
   const { isLoggedIn, setIsLoggedIn } = useAuthStore();
@@ -83,46 +84,14 @@ export default function SignInForm() {
   }
 
   return (
-    <section className="h-[500px] flex flex-col items-center">
-      <h2 className="text-[30px] font-bold pt-[50px] pb-[30px]">
-        Let&apos;s connect your GitHub account
-      </h2>
-      {isLoggedIn ? (
-        <>
-          <h2 className="text-[30px] font-bold pt-[50px] pb-[30px]">
-            당신은 로그인에 성공하였습니다.
-          </h2>
-          <button
-            className="border-[2px] rounded-[10px] font-semibold w-[400px] text-[30px] flex items-center p-[5px] justify-between pr-[30px] pl-[30px] hover:text-black hover:bg-white"
-            onClick={signOut}
-          >
-            <FiLogOut className="w-[40px] h-[40px]" />
-            Logout
-          </button>
-          <button
-            className="border-[2px] rounded-[10px] font-semibold w-[400px] text-[30px] flex items-center p-[5px] justify-between pr-[30px] pl-[30px] hover:text-black hover:bg-white"
-            onClick={checkLoginStatus}
-          >
-            <FiLogOut className="w-[40px] h-[40px]" />
-            Check User Data
-          </button>
-          <button
-            className="border-[2px] rounded-[10px] font-semibold w-[400px] text-[30px] flex items-center p-[5px] justify-between pr-[30px] pl-[30px] hover:text-black hover:bg-white"
-            onClick={checkSession}
-          >
-            <FiLogOut className="w-[40px] h-[40px]" />
-            Check Session
-          </button>
-        </>
-      ) : (
-        <button
-          className="border-[2px] rounded-[10px] font-semibold w-[400px] text-[30px] flex items-center p-[5px] justify-between pr-[30px] pl-[30px] hover:text-black hover:bg-white"
-          onClick={signInWithGithub}
-        >
-          <FaGithub className="w-[40px] h-[40px]" />
-          Sign in with Github
-        </button>
-      )}
-    </section>
+    <div className="flex justify-center items-center h-[140px] border-black">
+      {/* Git Hub 로그인 버튼*/}
+      <button
+        onClick={signInWithGithub}
+        className="text-[30px] w-[400px] font-normal hover:underline border-[#2B91FE] p-[10px] border-[2px] rounded-full"
+      >
+        👉🏻 Sign in with GitHub
+      </button>
+    </div>
   );
 }

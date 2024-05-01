@@ -14,9 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <head/>
+      <head />
       <body>
-        <Header/>
+        <Header />
         {children}
       </body>
     </html>

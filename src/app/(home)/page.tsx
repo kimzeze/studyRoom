@@ -6,7 +6,7 @@ export default function HomePage() {
       <h2 className="text-[80px] font-bold">메인 페이지</h2>
       <Link href="/signIn">
         <button className="text-[30px] w-[400px] font-normal hover:underline border-[#2B91FE] p-[10px] border-[2px] rounded-full">
-          👉🏻 Sign in with GitHub
+          👉🏻 👉🏻 👉🏻 👉🏻 Login Page
         </button>
       </Link>
     </main>

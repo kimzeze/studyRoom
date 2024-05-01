@@ -83,12 +83,15 @@ export default function SignInForm() {
   }
 
   return (
-    <section className="h-[500px] flex flex-col items-center border">
-      <h2 className="text-[30px] font-bold text-white pt-[50px] pb-[30px]">
+    <section className="h-[500px] flex flex-col items-center">
+      <h2 className="text-[30px] font-bold pt-[50px] pb-[30px]">
         Let&apos;s connect your GitHub account
       </h2>
       {isLoggedIn ? (
         <>
+          <h2 className="text-[30px] font-bold pt-[50px] pb-[30px]">
+            당신은 로그인에 성공하였습니다.
+          </h2>
           <button
             className="border-[2px] rounded-[10px] font-semibold w-[400px] text-[30px] flex items-center p-[5px] justify-between pr-[30px] pl-[30px] hover:text-black hover:bg-white"
             onClick={signOut}

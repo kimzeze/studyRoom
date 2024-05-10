@@ -84,11 +84,11 @@ export default function SignInForm() {
   }
 
   return (
-    <div className="flex justify-center items-center h-[140px] border-black">
+    <div className="flex h-[140px] items-center justify-center border-black">
       {/* Git Hub 로그인 버튼*/}
       <button
         onClick={signInWithGithub}
-        className="text-[30px] w-[400px] font-normal hover:underline border-[#2B91FE] p-[10px] border-[2px] rounded-full"
+        className="w-[400px] rounded-full border-[2px] border-[#2B91FE] p-[10px] text-[30px] font-normal hover:underline"
       >
         👉🏻 Sign in with GitHub
       </button>

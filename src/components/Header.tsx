@@ -10,18 +10,18 @@ export default function Header() {
   return pathname === "/signIn" ? (
     <></>
   ) : (
-    <header className="flex justify-between items-center h-[80px] border-b-[1px] border-primary px-[30px] w-screen text-24 font-medium">
+    <header className="flex h-[80px] w-screen items-center justify-between border-b-[1px] border-primary px-[30px] text-18 font-medium">
       {/* 헤더 로고 이미지 */}
       <Link href={"/"}>
         <Image
           className="border border-primary"
           src={logo}
           alt="DevCave"
-          width={200}
+          width={160}
         ></Image>
       </Link>
       {/* 네비게이션 */}
-      <nav className="border border-primary w-[800px]">
+      <nav className="w-[800px] border border-primary">
         <ul className="flex flex-row justify-between">
           <li>테스트</li>
           <li>테스트</li>
@@ -30,7 +30,7 @@ export default function Header() {
         </ul>
       </nav>
       {/* 사용자 상호작용 */}
-      <div className="border border-primary w-[200px] flex flex-row justify-between">
+      <div className="flex w-[200px] flex-row justify-between border border-primary">
         <button>로그인</button>
         <button>회원가입</button>
       </div>
